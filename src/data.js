@@ -1,8 +1,8 @@
-import Tools1 from "./assets/tools/ae.png";
-import Tools2 from "./assets/tools/pr.png";
-import Tools3 from "./assets/tools/davinci.png";
-import Tools4 from "./assets/tools/figma.png";
-import Tools5 from "./assets/tools/blender.png";
+import Tools1 from "/assets/tools/ae.png";
+import Tools2 from "/assets/tools/pr.png";
+import Tools3 from "/assets/tools/davinci.png";
+import Tools4 from "/assets/tools/figma.png";
+import Tools5 from "/assets/tools/blender.png";
 
 export const listTools = [
   {
@@ -42,12 +42,12 @@ export const listTools = [
   },
 ];
 
-import project1 from "./assets/project/proyek1.webp";
-import project2 from "./assets/project/proyek2.webp";
-import project3 from "./assets/project/proyek3.webp";
-import project4 from "./assets/project/proyek4.webp";
-import project5 from "./assets/project/proyek5.webp";
-import project6 from "./assets/project/proyek6.webp";
+import project1 from "/assets/project/proyek1.webp";
+import project2 from "/assets/project/proyek2.webp";
+import project3 from "/assets/project/proyek3.webp";
+import project4 from "/assets/project/proyek4.webp";
+import project5 from "/assets/project/proyek5.webp";
+import project6 from "/assets/project/proyek6.webp";
 
 export const listproject = [
   {

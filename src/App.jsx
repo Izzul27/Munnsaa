@@ -120,11 +120,11 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              poster={`${import.meta.env.BASE_URL}assets/img/hero-poster.jpg`}
+              poster="assets/img/hero-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source
-                src={`${import.meta.env.BASE_URL}assets/video/hero.mp4`}
+                src="assets/video/hero.mp4"
                 type="video/mp4"
               />
             </video>
@@ -442,9 +442,7 @@ function App() {
                         className="min-w-[160px] h-20 flex items-center justify-center"
                       >
                         <img
-                          src={`${
-                            import.meta.env.BASE_URL
-                          }./assets/clients/${logo}`}
+                          src={`/assets/clients/${logo}`}
                           alt="client"
                           className="
                   h-14 md:h-16 lg:h-18
