@@ -444,7 +444,7 @@ function App() {
                         <img
                           src={`${
                             import.meta.env.BASE_URL
-                          }assets/clients/${logo}`}
+                          }./assets/clients/${logo}`}
                           alt="client"
                           className="
                   h-14 md:h-16 lg:h-18
