@@ -123,7 +123,10 @@ function App() {
               poster="/assets/img/hero-poster.jpg"
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src="/assets/video/hero.mp4" type="video/mp4" />
+              <source
+                src={`${import.meta.env.BASE_URL}assets/video/hero.mp4`}
+                type="video/mp4"
+              />
             </video>
 
             {/* ================= OVERLAY ================= */}
@@ -152,7 +155,7 @@ function App() {
                 Creating cinematic visuals and digital storytelling with modern
                 aesthetics and creative impact.
               </p>
-              
+
               {/* ================= SOCIAL ================= */}
 
               <div className="flex justify-center gap-6 flex-wrap mb-10">
@@ -430,33 +433,30 @@ function App() {
                   Some clients and brands I’ve worked with over time.
                 </p>
 
-                {/* ================= MARQUEE ================= */}
-
+                {/* Marquee */}
                 <div className="relative overflow-hidden">
-                  {/* Track */}
                   <div className="flex gap-14 w-max animate-marquee hover:[animation-play-state:paused]">
                     {[...clients, ...clients].map((logo, i) => (
                       <div
                         key={i}
-                        className="
-                min-w-[160px] h-20
-                flex items-center justify-center
-              "
+                        className="min-w-[160px] h-20 flex items-center justify-center"
                       >
                         <img
-                          src={`/assets/clients/${logo}`}
+                          src={`${
+                            import.meta.env.BASE_URL
+                          }assets/clients/${logo}`}
                           alt="client"
                           className="
-    h-14 md:h-16 lg:h-18
-    max-w-[160px]
-    object-contain
-    opacity-60
-    grayscale
-    transition-all duration-300
-    hover:opacity-100
-    hover:grayscale-0
-    hover:scale-110
-  "
+                  h-14 md:h-16 lg:h-18
+                  max-w-[160px]
+                  object-contain
+                  opacity-60
+                  grayscale
+                  transition-all duration-300
+                  hover:opacity-100
+                  hover:grayscale-0
+                  hover:scale-110
+                "
                         />
                       </div>
                     ))}
