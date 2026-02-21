@@ -120,7 +120,7 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              poster="/assets/img/hero-poster.jpg"
+              poster={`${import.meta.env.BASE_URL}assets/img/hero-poster.jpg`}
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source

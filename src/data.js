@@ -1,5 +1,3 @@
-export default Image;
-
 import Tools1 from "/assets/tools/ae.png";
 import Tools2 from "/assets/tools/pr.png";
 import Tools3 from "/assets/tools/davinci.png";
