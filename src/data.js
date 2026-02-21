@@ -1,58 +1,49 @@
-import Tools1 from "/assets/tools/ae.png";
-import Tools2 from "/assets/tools/pr.png";
-import Tools3 from "/assets/tools/davinci.png";
-import Tools4 from "/assets/tools/figma.png";
-import Tools5 from "/assets/tools/blender.png";
+// ================= TOOLS =================
 
 export const listTools = [
   {
     id: 1,
-    gambar: Tools1,
+    gambar: "assets/tools/ae.png",
     nama: "Adobe After Effects",
     ket: "Adding Effect and Animation",
     dad: "100",
   },
   {
     id: 2,
-    gambar: Tools2,
+    gambar: "assets/tools/pr.png",
     nama: "Adobe Premiere Pro",
     ket: "Video Editing and Compositing",
     dad: "200",
   },
   {
     id: 3,
-    gambar: Tools3,
+    gambar: "assets/tools/davinci.png",
     nama: "DaVinci Resolve",
     ket: "Color Grading and Editing",
     dad: "300",
   },
   {
     id: 4,
-    gambar: Tools4,
+    gambar: "assets/tools/figma.png",
     nama: "Figma",
     ket: "Creating 2D Assets",
     dad: "300",
   },
   {
     id: 5,
-    gambar: Tools5,
+    gambar: "assets/tools/blender.png",
     nama: "Blender",
     ket: "Creating 3D Assets",
     dad: "300",
   },
 ];
 
-import project1 from "/assets/project/proyek1.webp";
-import project2 from "/assets/project/proyek2.webp";
-import project3 from "/assets/project/proyek3.webp";
-import project4 from "/assets/project/proyek4.webp";
-import project5 from "/assets/project/proyek5.webp";
-import project6 from "/assets/project/proyek6.webp";
+// ================= PROJECT =================
 
 export const listproject = [
   {
     id: 1,
-    gambar: project1,
+    gambar: "assets/project/proyek1.webp",
     nama: "UKM Profile",
     desk: "Company profile video with cinematic style.",
     tools: ["HTML", "CSS"],
@@ -63,7 +54,7 @@ export const listproject = [
   },
   {
     id: 2,
-    gambar: project2,
+    gambar: "assets/project/proyek2.webp",
     nama: "Product Promo",
     desk: "Short promo video with motion graphics.",
     tools: ["HTML", "CSS"],
@@ -74,7 +65,7 @@ export const listproject = [
   },
   {
     id: 3,
-    gambar: project3,
+    gambar: "assets/project/proyek3.webp",
     nama: "Gaming Montage",
     desk: "Fast-paced gaming highlight montage.",
     tools: ["HTML", "CSS"],
@@ -85,7 +76,7 @@ export const listproject = [
   },
   {
     id: 4,
-    gambar: project4,
+    gambar: "assets/project/proyek4.webp",
     nama: "Event Recap",
     desk: "Event documentation with cinematic cuts.",
     tools: ["HTML", "CSS"],
@@ -96,7 +87,7 @@ export const listproject = [
   },
   {
     id: 5,
-    gambar: project5,
+    gambar: "assets/project/proyek5.webp",
     nama: "Social Media Ad",
     desk: "Vertical video for social media ads.",
     tools: ["HTML", "CSS"],
@@ -107,7 +98,7 @@ export const listproject = [
   },
   {
     id: 6,
-    gambar: project6,
+    gambar: "assets/project/proyek6.webp",
     nama: "Short Film",
     desk: "Short cinematic storytelling project.",
     tools: ["HTML", "CSS"],

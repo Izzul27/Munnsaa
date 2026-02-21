@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { listTools, listproject } from "./data";
+const BASE = import.meta.env.BASE_URL;
 
 import CursorGlow from "./components/CursorGlow";
 import Preloader from "./components/Preloader";
@@ -120,13 +121,10 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              poster="assets/img/hero-poster.jpg"
+              poster={`${BASE}assets/img/hero-poster.jpg`}
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source
-                src="assets/video/hero.mp4"
-                type="video/mp4"
-              />
+              <source src={`${BASE}assets/video/hero.mp4`} />
             </video>
 
             {/* ================= OVERLAY ================= */}
@@ -338,7 +336,10 @@ function App() {
                         transition
                       "
                     >
-                      <img src={tool.gambar} className="w-14 rounded" />
+                      <img
+                        src={`${BASE}${tool.gambar}`}
+                        className="w-14 rounded"
+                      />
 
                       <div>
                         <h4 className="font-bold">{tool.nama}</h4>
@@ -442,7 +443,7 @@ function App() {
                         className="min-w-[160px] h-20 flex items-center justify-center"
                       >
                         <img
-                          src={`/assets/clients/${logo}`}
+                          src={`${BASE}assets/clients/${logo}`}
                           alt="client"
                           className="
                   h-14 md:h-16 lg:h-18
@@ -549,7 +550,10 @@ function ProjectCard({ project, onClick }) {
         transition-all duration-500
       "
     >
-      <img src={project.gambar} className="w-full h-48 object-cover" />
+      <img
+        src={`${BASE}${project.gambar}`}
+        className="w-full h-48 object-cover"
+      />
 
       <div className="p-5">
         <h3 className="font-semibold mb-1">{project.nama}</h3>
