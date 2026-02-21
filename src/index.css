@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+    .active {
+        color: #b70000 !important;
+        border-bottom: 3px solid #b70000;
+        transition: all 0.3s ease;
+      }
+      
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+@keyframes skillFill {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .animate-skill {
+    animation: skillFill 1.5s ease-out forwards;
+  }
+
+@keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }  
