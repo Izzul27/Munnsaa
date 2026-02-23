@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { listTools, listproject } from "./data";
 import { motion } from "framer-motion";
 
@@ -86,13 +87,47 @@ function Typewriter({ words, speed = 120, delay = 1500 }) {
 /* ================= APP ================= */
 
 function App() {
+  const formRef = useRef();
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const [loading, setLoading] = useState(true);
+  const [popup, setPopup] = useState({
+    show: false,
+    success: true,
+  });
 
   useEffect(() => {
     document.body.style.overflow = selectedProject ? "hidden" : "auto";
   }, [selectedProject]);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_a300igg",
+        "template_ufostkw",
+        formRef.current,
+        "E0XySa9ibH9z8_a7e"
+      )
+      .then(
+        () => {
+          setPopup({ show: true, success: true });
+          formRef.current.reset();
+
+          setTimeout(() => {
+            setPopup({ show: false, success: true });
+          }, 3000);
+        },
+        () => {
+          setPopup({ show: true, success: false });
+
+          setTimeout(() => {
+            setPopup({ show: false, success: false });
+          }, 3000);
+        }
+      );
+  };
 
   const filteredProjects =
     activeCategory === "All"
@@ -492,78 +527,65 @@ function App() {
 
           {/* ================= CONTACT ================= */}
 
-          <section
-            id="contact"
-            className="relative py-28 px-6 bg-black text-white overflow-hidden"
-          >
-            {/* Glow */}
-            <div className="absolute w-[350px] h-[350px] bg-purple-600/20 blur-[160px] rounded-full -top-32 right-0" />
-            <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[140px] rounded-full bottom-0 left-0" />
+          <ScrollReveal>
+            <section
+              id="contact"
+              className="relative py-28 px-6 bg-black text-white overflow-hidden"
+            >
+              {/* Glow */}
+              <div className="absolute w-[350px] h-[350px] bg-purple-600/20 blur-[160px] rounded-full -top-32 right-0" />
+              <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[140px] rounded-full bottom-0 left-0" />
+              <div className="max-w-xl mx-auto">
+                <h2 className="text-4xl font-bold text-center mb-6">
+                  Contact <span className="text-purple-500">Me</span>
+                </h2>
 
-            <div className="max-w-xl mx-auto">
-              <h2 className="text-4xl font-bold text-center mb-6">
-                Contact <span className="text-purple-500">Me</span>
-              </h2>
+                <p className="text-center opacity-50 mb-6">
+                  If you’d like to work together or have any questions, feel
+                  free to contact me here.
+                </p>
 
-              <p className="text-center opacity-50 mb-6">
-                If you’d like to work together or have any questions, feel free
-                to contact me here.
-              </p>
+                <form
+                  ref={formRef}
+                  onSubmit={sendEmail}
+                  className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
+                >
+                  <div className="flex flex-col gap-5">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      className="p-3 bg-black border border-zinc-700 rounded"
+                    />
 
-              <form
-                action="https://formsubmit.co/el/duruli"
-                method="POST"
-                className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
-              >
-                <input
-                  type="hidden"
-                  name="_subject"
-                  value="New Message from Portfolio"
-                />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_replyto" value="%email%" />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      className="p-3 bg-black border border-zinc-700 rounded"
+                    />
 
-                <input
-                  type="hidden"
-                  name="_next"
-                  value="https://izzul27.github.io/portfolio-munnsaa/#contact"
-                />
+                    <textarea
+                      name="message"
+                      rows="5"
+                      placeholder="Message"
+                      required
+                      className="p-3 bg-black border border-zinc-700 rounded"
+                    />
 
-                <div className="flex flex-col gap-5">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    required
-                    className="p-3 bg-black border border-zinc-700 rounded"
-                  />
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    className="p-3 bg-black border border-zinc-700 rounded"
-                  />
-
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="Message"
-                    required
-                    className="p-3 bg-black border border-zinc-700 rounded"
-                  />
-
-                  <button
-                    type="submit"
-                    className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
-            </div>
-          </section>
+                    <button
+                      type="submit"
+                      className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition"
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </ScrollReveal>
 
           {/* ================= MODAL ================= */}
 
@@ -574,6 +596,42 @@ function App() {
             />
           )}
         </>
+      )}
+      {popup.show && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div
+            className={`
+        bg-zinc-900 border border-white/10
+        rounded-2xl p-8 w-[90%] max-w-sm
+        text-center
+        transform transition-all duration-500
+        ${popup.show ? "scale-100 opacity-100" : "scale-75 opacity-0"}
+      `}
+          >
+            <motion.div
+              initial={{ scale: 0, rotate: -180, opacity: 0 }}
+              animate={{ scale: 1, rotate: 0, opacity: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 12,
+              }}
+              className="text-6xl mb-4"
+            >
+              {popup.success ? "✅" : "❌"}
+            </motion.div>
+
+            <h3 className="text-xl font-semibold mb-2">
+              {popup.success ? "Message Sent!" : "Failed to Send"}
+            </h3>
+
+            <p className="text-sm opacity-60">
+              {popup.success
+                ? "Thank you for reaching out. I’ll reply soon!"
+                : "Something went wrong. Please try again."}
+            </p>
+          </div>
+        </div>
       )}
     </>
   );
