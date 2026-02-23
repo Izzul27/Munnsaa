@@ -165,16 +165,16 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-        bg-black/40 backdrop-blur-md
-        border border-purple-500/40
-        p-4 rounded-2xl
-        text-purple-400
-        transition-all duration-300
-        hover:scale-125
-        hover:bg-purple-600/30
-        hover:text-white
-        hover:shadow-[0_0_30px_#a855f7]
-      "
+          bg-black/40 backdrop-blur-md
+          border border-purple-500/40
+          p-4 rounded-2xl
+          text-purple-400
+          transition-all duration-300
+          hover:scale-125
+          hover:bg-purple-600/30
+          hover:text-white
+          hover:shadow-[0_0_30px_#a855f7]
+        "
                   >
                     <i className={`ri-${item.name}-fill text-2xl`} />
                   </a>
@@ -190,27 +190,27 @@ function App() {
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
                   className="
-          relative overflow-hidden
-          px-8 py-4 rounded-full
-          font-semibold tracking-wide
-          text-white
-          bg-gradient-to-r from-purple-600 to-fuchsia-600
-          transition-all duration-300
-          hover:scale-110
-          hover:shadow-[0_0_40px_#a855f7]
-          active:scale-95
-        "
+            relative overflow-hidden
+            px-8 py-4 rounded-full
+            font-semibold tracking-wide
+            text-white
+            bg-gradient-to-r from-purple-600 to-fuchsia-600
+            transition-all duration-300
+            hover:scale-110
+            hover:shadow-[0_0_40px_#a855f7]
+            active:scale-95
+          "
                 >
                   <span className="relative z-10">View Projects</span>
 
                   {/* Glow Effect */}
                   <span
                     className="
-            absolute inset-0
-            bg-gradient-to-r from-fuchsia-600 to-purple-600
-            opacity-0 hover:opacity-100
-            transition
-          "
+              absolute inset-0
+              bg-gradient-to-r from-fuchsia-600 to-purple-600
+              opacity-0 hover:opacity-100
+              transition
+            "
                   />
                 </button>
               </div>
@@ -329,13 +329,13 @@ function App() {
                     <div
                       key={tool.id}
                       className="
-                        bg-black/60 backdrop-blur-xl
-                        border border-white/10
-                        rounded-xl p-5
-                        flex gap-4 items-center
-                        hover:border-purple-500/50
-                        transition
-                      "
+                          bg-black/60 backdrop-blur-xl
+                          border border-white/10
+                          rounded-xl p-5
+                          flex gap-4 items-center
+                          hover:border-purple-500/50
+                          transition
+                        "
                     >
                       <img
                         src={`${BASE}${tool.gambar}`}
@@ -398,15 +398,15 @@ function App() {
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     className={`
-            px-5 py-2 rounded-full text-sm
-            backdrop-blur-md border
-            transition-all duration-300
-            ${
-              activeCategory === cat
-                ? "bg-purple-600/30 border-purple-500/50 text-white shadow-[0_0_20px_#a855f7]"
-                : "bg-black/40 border-white/10 text-zinc-400 hover:text-white hover:border-purple-500/40"
-            }
-          `}
+              px-5 py-2 rounded-full text-sm
+              backdrop-blur-md border
+              transition-all duration-300
+              ${
+                activeCategory === cat
+                  ? "bg-purple-600/30 border-purple-500/50 text-white shadow-[0_0_20px_#a855f7]"
+                  : "bg-black/40 border-white/10 text-zinc-400 hover:text-white hover:border-purple-500/40"
+              }
+            `}
                   >
                     {cat}
                   </button>
@@ -471,16 +471,16 @@ function App() {
                           src={`${BASE}assets/clients/${logo}`}
                           alt="client"
                           className="
-                  h-14 md:h-16 lg:h-18
-                  max-w-[160px]
-                  object-contain
-                  opacity-60
-                  grayscale
-                  transition-all duration-300
-                  hover:opacity-100
-                  hover:grayscale-0
-                  hover:scale-110
-                "
+                    h-14 md:h-16 lg:h-18
+                    max-w-[160px]
+                    object-contain
+                    opacity-60
+                    grayscale
+                    transition-all duration-300
+                    hover:opacity-100
+                    hover:grayscale-0
+                    hover:scale-110
+                  "
                         />
                       </div>
                     ))}
@@ -492,79 +492,78 @@ function App() {
 
           {/* ================= CONTACT ================= */}
 
-          <ScrollReveal>
-            <section
-              id="contact"
-              className="relative py-28 px-6 bg-black text-white overflow-hidden"
-            >
-              {/* Glow */}
-              <div className="absolute w-[350px] h-[350px] bg-purple-600/20 blur-[160px] rounded-full -top-32 right-0" />
-              <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[140px] rounded-full bottom-0 left-0" />
-              <div className="max-w-xl mx-auto">
-                <h2 className="text-4xl font-bold text-center mb-6">
-                  Contact <span className="text-purple-500">Me</span>
-                </h2>
+          <section
+            id="contact"
+            className="relative py-28 px-6 bg-black text-white overflow-hidden"
+          >
+            {/* Glow */}
+            <div className="absolute w-[350px] h-[350px] bg-purple-600/20 blur-[160px] rounded-full -top-32 right-0" />
+            <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[140px] rounded-full bottom-0 left-0" />
 
-                <p className="text-center opacity-50 mb-6">
-                  If you’d like to work together or have any questions, feel
-                  free to contact me here.
-                </p>
+            <div className="max-w-xl mx-auto">
+              <h2 className="text-4xl font-bold text-center mb-6">
+                Contact <span className="text-purple-500">Me</span>
+              </h2>
 
-                <form
-                  action="https://formsubmit.co/el/duruli"
-                  method="POST"
-                  className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
-                >
+              <p className="text-center opacity-50 mb-6">
+                If you’d like to work together or have any questions, feel free
+                to contact me here.
+              </p>
+
+              <form
+                action="https://formsubmit.co/el/duruli"
+                method="POST"
+                className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Message from Portfolio"
+                />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_replyto" value="%email%" />
+
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://izzul27.github.io/portfolio-munnsaa/#contact?sent=true"
+                />
+
+                <div className="flex flex-col gap-5">
                   <input
-                    type="hidden"
-                    name="_subject"
-                    value="New Message from Portfolio"
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    className="p-3 bg-black border border-zinc-700 rounded"
                   />
-                  <input type="hidden" name="_captcha" value="false" />
 
-                  {/* TAMBAHAN INI */}
                   <input
-                    type="hidden"
-                    name="_next"
-                    value="https://izzul27.github.io/portfolio-munnsaa/#contact?sent=true"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="p-3 bg-black border border-zinc-700 rounded"
                   />
 
-                  <div className="flex flex-col gap-5">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      required
-                      className="p-3 bg-black border border-zinc-700 rounded"
-                    />
+                  <textarea
+                    name="message"
+                    rows="5"
+                    placeholder="Message"
+                    required
+                    className="p-3 bg-black border border-zinc-700 rounded"
+                  />
 
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      className="p-3 bg-black border border-zinc-700 rounded"
-                    />
-
-                    <textarea
-                      name="message"
-                      rows="5"
-                      placeholder="Message"
-                      required
-                      className="p-3 bg-black border border-zinc-700 rounded"
-                    />
-
-                    <button
-                      type="submit"
-                      className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition"
-                    >
-                      Send Message
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </section>
-          </ScrollReveal>
+                  <button
+                    type="submit"
+                    className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
 
           {/* ================= MODAL ================= */}
 
@@ -604,13 +603,13 @@ function ProjectCard({ project, onClick }) {
       }}
       whileHover={{ scale: 1.03 }}
       className="
-        relative group cursor-pointer
-        bg-black/60 backdrop-blur-xl rounded-2xl overflow-hidden
-        border border-white/10
-        hover:border-purple-500/50
-        transition-all duration-500
-        will-change-transform will-change-opacity
-      "
+          relative group cursor-pointer
+          bg-black/60 backdrop-blur-xl rounded-2xl overflow-hidden
+          border border-white/10
+          hover:border-purple-500/50
+          transition-all duration-500
+          will-change-transform will-change-opacity
+        "
     >
       <img
         src={`${BASE}${project.gambar}`}
@@ -754,14 +753,14 @@ function ServiceItem({ number, title, desc }) {
     <div
       onClick={() => setOpen(!open)}
       className="
-        group cursor-pointer
-        bg-black/50 backdrop-blur-xl
-        border border-white/10
-        rounded-xl p-5
-        transition-all duration-300
-        hover:border-purple-500/40
-        hover:shadow-[0_0_25px_#a855f740]
-      "
+          group cursor-pointer
+          bg-black/50 backdrop-blur-xl
+          border border-white/10
+          rounded-xl p-5
+          transition-all duration-300
+          hover:border-purple-500/40
+          hover:shadow-[0_0_25px_#a855f740]
+        "
     >
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -773,9 +772,9 @@ function ServiceItem({ number, title, desc }) {
 
         <span
           className={`
-            text-purple-400 transition
-            ${open ? "rotate-45" : ""}
-          `}
+              text-purple-400 transition
+              ${open ? "rotate-45" : ""}
+            `}
         >
           +
         </span>
