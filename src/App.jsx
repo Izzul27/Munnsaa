@@ -526,7 +526,7 @@ function App() {
                 <input
                   type="hidden"
                   name="_next"
-                  value="https://izzul27.github.io/portfolio-munnsaa/#contact?sent=true"
+                  value="https://izzul27.github.io/portfolio-munnsaa/#contact"
                 />
 
                 <div className="flex flex-col gap-5">
