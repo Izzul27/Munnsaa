@@ -512,7 +512,7 @@ function App() {
                 </p>
 
                 <form
-                  action="https://formsubmit.co/izzulramadhan24@gmail.com"
+                  action="https://formsubmit.co/el/duruli"
                   method="POST"
                   className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
                 >
