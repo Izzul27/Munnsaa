@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { listTools, listproject } from "./data";
+import { motion } from "framer-motion";
+
 const BASE = import.meta.env.BASE_URL;
 
 import CursorGlow from "./components/CursorGlow";
@@ -354,65 +356,89 @@ function App() {
 
           {/* ================= PROJECT ================= */}
 
-          <ScrollReveal>
-            <section
-              id="project"
-              className="relative py-28 px-6 bg-black text-white overflow-hidden"
-            >
-              {/* Glow */}
-              <div className="absolute w-[400px] h-[400px] bg-purple-600/20 blur-[180px] rounded-full -top-40 left-1/2 -translate-x-1/2" />
-              <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[150px] rounded-full bottom-0 right-0" />
+          <section
+            id="project"
+            className="relative py-28 px-6 bg-black text-white overflow-hidden"
+          >
+            {/* Glow */}
+            <div className="absolute w-[400px] h-[400px] bg-purple-600/20 blur-[180px] rounded-full -top-40 left-1/2 -translate-x-1/2" />
+            <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[150px] rounded-full bottom-0 right-0" />
 
-              <div className="relative z-10 max-w-6xl mx-auto">
-                {/* Title */}
-                <h2 className="text-center text-4xl font-bold mb-4">
-                  My <span className="text-purple-500">Projects</span>
-                </h2>
+            <div className="relative z-10 max-w-6xl mx-auto">
+              {/* Title */}
+              <motion.h2
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center text-4xl font-bold mb-4"
+              >
+                My <span className="text-purple-500">Projects</span>
+              </motion.h2>
 
-                <p className="text-center text-zinc-400 mb-10">
-                  Some projects that I’ve worked on and enjoyed creating.
-                </p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-center text-zinc-400 mb-10"
+              >
+                Some projects that I’ve worked on and enjoyed creating.
+              </motion.p>
 
-                {/* ================= FILTER ================= */}
+              {/* ================= FILTER ================= */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="flex justify-center gap-4 flex-wrap mb-14"
+              >
+                {["All", "VFX", "Animation", "Motion", "Gaming"].map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`
+            px-5 py-2 rounded-full text-sm
+            backdrop-blur-md border
+            transition-all duration-300
+            ${
+              activeCategory === cat
+                ? "bg-purple-600/30 border-purple-500/50 text-white shadow-[0_0_20px_#a855f7]"
+                : "bg-black/40 border-white/10 text-zinc-400 hover:text-white hover:border-purple-500/40"
+            }
+          `}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </motion.div>
 
-                <div className="flex justify-center gap-4 flex-wrap mb-14">
-                  {["All", "VFX", "Animation", "Motion", "Gaming"].map(
-                    (cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => setActiveCategory(cat)}
-                        className={`
-                px-5 py-2 rounded-full text-sm
-                backdrop-blur-md border
-                transition-all duration-300
-
-                ${
-                  activeCategory === cat
-                    ? "bg-purple-600/30 border-purple-500/50 text-white shadow-[0_0_20px_#a855f7]"
-                    : "bg-black/40 border-white/10 text-zinc-400 hover:text-white hover:border-purple-500/40"
-                }
-              `}
-                      >
-                        {cat}
-                      </button>
-                    )
-                  )}
-                </div>
-
-                {/* ================= GRID ================= */}
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredProjects.map((project) => (
-                    <ProjectCard
-                      key={project.id}
-                      project={project}
-                      onClick={() => setSelectedProject(project)}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-          </ScrollReveal>
+              {/* ================= GRID ================= */}
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.15,
+                    },
+                  },
+                }}
+              >
+                {filteredProjects.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    onClick={() => setSelectedProject(project)}
+                  />
+                ))}
+              </motion.div>
+            </div>
+          </section>
 
           {/* ================= CLIENTS ================= */}
           <ScrollReveal>
@@ -552,20 +578,38 @@ function App() {
 
 function ProjectCard({ project, onClick }) {
   return (
-    <div
+    <motion.div
       onClick={onClick}
+      variants={{
+        hidden: {
+          opacity: 0,
+          y: 40,
+          scale: 0.95,
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: {
+            duration: 0.6,
+            ease: "easeOut",
+          },
+        },
+      }}
+      whileHover={{ scale: 1.03 }}
       className="
         relative group cursor-pointer
         bg-black/60 backdrop-blur-xl rounded-2xl overflow-hidden
         border border-white/10
         hover:border-purple-500/50
-        hover:-translate-y-2
         transition-all duration-500
+        will-change-transform will-change-opacity
       "
     >
       <img
         src={`${BASE}${project.gambar}`}
         className="w-full h-48 object-cover"
+        alt={project.nama}
       />
 
       <div className="p-5">
@@ -573,7 +617,7 @@ function ProjectCard({ project, onClick }) {
 
         <p className="text-sm opacity-60 line-clamp-2">{project.desk}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
