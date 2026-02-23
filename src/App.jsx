@@ -523,6 +523,13 @@ function App() {
                   />
                   <input type="hidden" name="_captcha" value="false" />
 
+                  {/* TAMBAHAN INI */}
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value="https://izzul27.github.io/Munnsaa/#contact?sent=true"
+                  />
+
                   <div className="flex flex-col gap-5">
                     <input
                       type="text"
