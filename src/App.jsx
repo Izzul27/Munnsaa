@@ -123,7 +123,6 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              poster={`${BASE}assets/img/hero-poster.jpg`}
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src={`${BASE}assets/video/hero.mp4`} />
@@ -527,7 +526,7 @@ function App() {
                   <input
                     type="hidden"
                     name="_next"
-                    value="https://izzul27.github.io/Munnsaa/#contact?sent=true"
+                    value="https://izzul27.github.io/portfolio-munnsaa/#contact?sent=true"
                   />
 
                   <div className="flex flex-col gap-5">

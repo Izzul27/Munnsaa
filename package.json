@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://izzul27.github.io/Munnsaa/",
+  "homepage": "https://izzul27.github.io/portfolio-munnsaa/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
