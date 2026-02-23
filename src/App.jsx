@@ -490,29 +490,42 @@ function App() {
                   method="POST"
                   className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 rounded-xl"
                 >
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Message from Portfolio"
+                  />
+                  <input type="hidden" name="_captcha" value="false" />
+
                   <div className="flex flex-col gap-5">
                     <input
                       type="text"
+                      name="name"
                       placeholder="Name"
-                      className="p-3 bg-black border border-zinc-700 rounded"
                       required
+                      className="p-3 bg-black border border-zinc-700 rounded"
                     />
 
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email"
-                      className="p-3 bg-black border border-zinc-700 rounded"
                       required
+                      className="p-3 bg-black border border-zinc-700 rounded"
                     />
 
                     <textarea
+                      name="message"
                       rows="5"
                       placeholder="Message"
-                      className="p-3 bg-black border border-zinc-700 rounded"
                       required
+                      className="p-3 bg-black border border-zinc-700 rounded"
                     />
 
-                    <button className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition">
+                    <button
+                      type="submit"
+                      className="bg-purple-600 py-3 rounded hover:bg-purple-500 transition"
+                    >
                       Send Message
                     </button>
                   </div>
