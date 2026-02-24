@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { listTools, listproject } from "./data";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -395,8 +395,8 @@ function App() {
             className="relative py-28 px-6 bg-black text-white overflow-hidden"
           >
             {/* Glow */}
-            <div className="absolute w-[400px] h-[400px] bg-purple-600/20 blur-[180px] rounded-full -top-40 left-1/2 -translate-x-1/2" />
-            <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[150px] rounded-full bottom-0 right-0" />
+            <div className="absolute w-[400px] h-[400px] bg-purple-600/20 blur-[80px] rounded-full -top-40 left-1/2 -translate-x-1/2" />
+            <div className="absolute w-[300px] h-[300px] bg-fuchsia-600/20 blur-[60px] rounded-full bottom-0 right-0" />
 
             <div className="relative z-10 max-w-6xl mx-auto">
               {/* Title */}
@@ -449,28 +449,32 @@ function App() {
               </motion.div>
 
               {/* ================= GRID ================= */}
-              <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.15,
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.15,
+                      },
                     },
-                  },
-                }}
-              >
-                {filteredProjects.map((project) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    onClick={() => setSelectedProject(project)}
-                  />
-                ))}
-              </motion.div>
+                  }}
+                >
+                  {filteredProjects.map((project, index) => (
+                    <ProjectCard
+                      key={`${project.id}-${project.category}-${index}`}
+                      project={project}
+                      onClick={() => setSelectedProject(project)}
+                    />
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </section>
 
@@ -646,20 +650,18 @@ function ProjectCard({ project, onClick }) {
       variants={{
         hidden: {
           opacity: 0,
-          y: 40,
-          scale: 0.95,
+          y: 20,
         },
         visible: {
           opacity: 1,
           y: 0,
-          scale: 1,
           transition: {
-            duration: 0.6,
+            duration: 0.4,
             ease: "easeOut",
           },
         },
       }}
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ y: -4 }}
       className="
           relative group cursor-pointer
           bg-black/60 backdrop-blur-xl rounded-2xl overflow-hidden
